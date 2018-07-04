@@ -50,13 +50,13 @@ namespace DataStructuresAndLINQ
                 int choose;
                 try
                 {
-                      choose = Convert.ToInt32(Console.ReadLine());
+                    choose = Convert.ToInt32(Console.ReadLine());
                 }
                 catch
                 {
-                    Console.WriteLine("------------------------"+"\n"+
-                        "You have char in input instead of int. Please enter valid input"+
-                        "\n"+"---------------------------");
+                    Console.WriteLine("------------------------" + "\n" +
+                        "You have char in input instead of int. Please enter valid input" +
+                        "\n" + "---------------------------");
                     continue;
                 }
 
@@ -138,13 +138,13 @@ namespace DataStructuresAndLINQ
                         }
 
                         var doneTodos = GetDoneToDos(usersList, userId3);
-                        if (doneTodos!=null)
+                        if (doneTodos != null)
                         {
                             Console.WriteLine("Done todos: " + "\n");
 
                             foreach (KeyValuePair<int, string> todo in doneTodos)
                             {
-                                Console.WriteLine( "Id:  " + todo.Key + "    name: " + todo.Value + "\n");
+                                Console.WriteLine("Id:  " + todo.Key + "    name: " + todo.Value + "\n");
                             }
                             Console.WriteLine("---------------------------" + "\n");
                         }
@@ -160,7 +160,7 @@ namespace DataStructuresAndLINQ
                             foreach (User u in userList)
                             {
                                 Console.WriteLine("UserName:  " + u.Name + "\n");
-                                if (u.Todos.Count()!=0)
+                                if (u.Todos.Count() != 0)
                                 {
                                     Console.WriteLine("Done todos: " + "\n");
                                     foreach (Todo todo in u.Todos)
@@ -170,9 +170,9 @@ namespace DataStructuresAndLINQ
                                 }
                                 Console.WriteLine("--------------" + "\n");
                             }
-                            
+
                         }
-                            break;
+                        break;
                     case 5:
                         Console.WriteLine("You choose option " + "\n" +
                            "5) Get the following Post structure (pass the post's Id to the parameters)" + "\n" +
@@ -195,9 +195,9 @@ namespace DataStructuresAndLINQ
                         var post = GetPostResponse(usersList, postId);
                         if (post != null)
                         {
-                            Console.WriteLine("Post Response: " + "\n"+
-                                "MostLikedComment :  "+"\n"+post.TheMostLikedComment+"\n"+
-                                "The biggest comment :   "+"\n"+post.TheBiggestComment+"\n"+
+                            Console.WriteLine("Post Response: " + "\n" +
+                                "MostLikedComment :  " + "\n" + post.TheMostLikedComment + "\n" +
+                                "The biggest comment :   " + "\n" + post.TheBiggestComment + "\n" +
                                 "The number of comments under the post where or 0 words or" +
                                 " the length of the text is <80 :   " + post.QuantityOfNeededComment);
                             Console.WriteLine("---------------------------" + "\n");
@@ -232,14 +232,14 @@ namespace DataStructuresAndLINQ
                             }
                             if (user.MostPopularPostWithComments != null)
                             {
-                             
+
                                 Console.WriteLine("Most popular Post (comments) :   " + "\n" + "-" + user.MostPopularPostWithComments.Body);
                             }
                             if (user.TheLatestPost != null)
                             {
-                                Console.WriteLine("The latest Post :   " +"\n"+"-"+ user.TheLatestPost.Body);
+                                Console.WriteLine("The latest Post :   " + "\n" + "-" + user.TheLatestPost.Body);
                             }
-                                
+
                             Console.WriteLine("---------------------------" + "\n");
                         }
                         break;
@@ -373,7 +373,7 @@ namespace DataStructuresAndLINQ
                 QuantityOfNotDoneTodos = user.Todos.Where(todo => todo.IsComlete == false).Count(),
                 TheLatestPost = user.Posts.OrderByDescending(x => x.createdAt).FirstOrDefault(),
                 QuantityComentsAtLastPost = user.Posts.OrderByDescending(x => x.createdAt)
-                    .FirstOrDefault()?.Comments?.Count() ??0,
+                    .FirstOrDefault()?.Comments?.Count() ?? 0,
                 MostPopularPostWithComments = user.Posts
                     .OrderByDescending(x => x.Comments).FirstOrDefault(x => x.Body.Length > 80),
                 MostPopularPostWithLikes = user.Posts

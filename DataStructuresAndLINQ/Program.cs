@@ -16,9 +16,10 @@ namespace DataStructuresAndLINQ
 
             while (!DataFetched)
             {
-                Console.WriteLine("Hello, welcome to my DataStructureAndLinq Program that works with" +
-               " userList. Structure of data is User->Address,ToDos,Posts->Comments" +
-               "First we need to fetch data from given endpoints. If you redy press Enter");
+                Console.WriteLine(
+@"Hello, welcome to my DataStructureAndLinq Program that works with
+userList. Structure of data is User->Address,ToDos,Posts->Comments
+First we need to fetch data from given endpoints. If you ready press Enter");
                 Console.ReadLine();
 
                 usersList = GetUserListStructure();
@@ -35,17 +36,17 @@ namespace DataStructuresAndLINQ
             while (IsWork)
             {
                 Console.WriteLine(
-                    "Please chose the option from the list above!" + "\n" +
-                    "1) Get the number of comments under the posts of a specific" +
-                    " user (by iDi) (list from post-number)" + "\n" +
-                    "2) Get a list of comments under the posts of a specific user (via iDi)," +
-                    " where the body comment is <50 characters (list from the comments)" + "\n" +
-                    "3) Get the list (id, name) from the todos list that is executed for a particular user (by iDi)" + "\n" +
-                    "4) Get list of users alphabetically (ascending) with sorted todo items by length name (descending)" + "\n" +
-                    "5) Get the following Post structure (pass the post's Id to the parameters)" + "\n" +
-                    "6) Get the following  User structure (pass the user's Id to the parameters)" + "\n" +
-                    "7) Finish to work with program." + "\n" +
-                    "Please enter ONLY number of choosen option!!!");
+@"Please chose the option from the list above!
+1) Get the number of comments under the posts of a specific
+user (by iD) (list from post-number)
+2) Get a list of comments under the posts of a specific user (via iD),
+where the body comment is <50 characters (list from the comments)
+3) Get the list (id, name) from the todos list that is executed for a particular user (by iD)
+4) Get list of users alphabetically (ascending) with sorted todo items by length name (descending)
+5) Get the following Post structure (pass the post's Id to the parameters)
+6) Get the following  User structure (pass the user's Id to the parameters)
+7) Finish to work with program.
+Please enter ONLY number of choosen option!!!");
 
                 int choose;
                 try
@@ -54,19 +55,21 @@ namespace DataStructuresAndLINQ
                 }
                 catch
                 {
-                    Console.WriteLine("------------------------" + "\n" +
-                        "You have char in input instead of int. Please enter valid input" +
-                        "\n" + "---------------------------");
+                    Console.WriteLine(
+@"--------------------------
+You have char in input instead of int. Please enter valid input
+---------------------------");
                     continue;
                 }
 
                 switch (choose)
                 {
                     case 1:
-                        Console.WriteLine("You choose option " + "\n" +
-                            "1) Get the number of comments under the posts of a specific" +
-                            " user (by iDi) (list from post-number)" + "\n" +
-                            "Please enter userId");
+                        Console.WriteLine(
+@"You choose option
+1) Get the number of comments under the posts of a specific
+user (by iD) (list from post-number)
+Please enter userId");
 
                         int userId1;
                         try
@@ -75,9 +78,10 @@ namespace DataStructuresAndLINQ
                         }
                         catch
                         {
-                            Console.WriteLine("------------------------" + "\n" +
-                                "You have char in input instead of int. Please enter valid input" +
-                                "\n" + "---------------------------");
+                            Console.WriteLine(
+@"------------------------
+You have char in input instead of int. Please enter valid input
+---------------------------");
                             break;
                         }
 
@@ -85,15 +89,17 @@ namespace DataStructuresAndLINQ
                         int count = GetPostsCount(usersList, userId1);
                         if (count != -1)
                         {
-                            Console.WriteLine("User has =" + count + "= posts" + "\n" +
-                                "---------------------------" + "\n");
+                            Console.WriteLine(
+$@"User has = {count} = posts
+---------------------------");
                         }
                         break;
                     case 2:
-                        Console.WriteLine("You choose option " + "\n" +
-                            "2) Get a list of comments under the posts of a specific user (via iDi)," +
-                    " where the body comment is <50 characters (list from the comments)" + "\n" +
-                            "Please enter userId");
+                        Console.WriteLine(
+@"You choose option 
+2) Get a list of comments under the posts of a specific user (via iD),
+where the body comment is <50 characters (list from the comments)
+Please enter userId");
 
                         int userId2;
                         try
@@ -102,9 +108,10 @@ namespace DataStructuresAndLINQ
                         }
                         catch
                         {
-                            Console.WriteLine("------------------------" + "\n" +
-                                "You have char in input instead of int. Please enter valid input" +
-                                "\n" + "---------------------------");
+                            Console.WriteLine(
+@"------------------------
+You have char in input instead of int. Please enter valid input
+---------------------------");
                             break;
                         }
 
@@ -114,16 +121,18 @@ namespace DataStructuresAndLINQ
                         {
                             foreach (Comment c in comments)
                             {
-                                Console.WriteLine("Id:" + c.Id + "\n" + c.CreatedAt + "\n"
-                                    + "Comment body:" + c.Body + "\n" + "Likes:" + c.Likes + "\n");
+                                Console.WriteLine(
+$@"Id: {c.Id}  c.CreatedAt 
+Comment body:{ c.Body} Likes: {c.Likes}");
                             }
                             Console.WriteLine("---------------------------" + "\n");
                         }
                         break;
                     case 3:
-                        Console.WriteLine("You choose option " + "\n" +
-                            "3) Get the list (id, name) from the todos list that is executed for a particular user (by iDi)" + "\n" +
-                            "Please enter userId");
+                        Console.WriteLine(
+@"You choose option 
+3) Get the list (id, name) from the todos list that is executed for a particular user (by iD)
+Please enter userId");
                         int userId3;
                         try
                         {
@@ -131,52 +140,55 @@ namespace DataStructuresAndLINQ
                         }
                         catch
                         {
-                            Console.WriteLine("------------------------" + "\n" +
-                                "You have char in input instead of int. Please enter valid input" +
-                                "\n" + "---------------------------");
+                            Console.WriteLine(
+@"------------------------
+You have char in input instead of int. Please enter valid input
+---------------------------");
                             break;
                         }
 
                         var doneTodos = GetDoneToDos(usersList, userId3);
                         if (doneTodos != null)
                         {
-                            Console.WriteLine("Done todos: " + "\n");
+                            Console.WriteLine("Done todos: ");
 
                             foreach (KeyValuePair<int, string> todo in doneTodos)
                             {
-                                Console.WriteLine("Id:  " + todo.Key + "    name: " + todo.Value + "\n");
+                                Console.WriteLine($"Id:  {todo.Key}  name: {todo.Value} ");
                             }
-                            Console.WriteLine("---------------------------" + "\n");
+                            Console.WriteLine("---------------------------");
                         }
                         break;
                     case 4:
-                        Console.WriteLine("You choose option " + "\n" +
-                            "4) Get list of users alphabetically (ascending) with sorted todo items by length name (descending)" + "\n");
+                        Console.WriteLine(
+@"You choose option 
+4) Get list of users alphabetically (ascending) with sorted todo items by length name (descending)");
                         var userList = GetSortedUserAndToDos(usersList);
                         if (userList != null)
                         {
-                            Console.WriteLine("Sorted users list with sorted todos: " + "\n");
+                            Console.WriteLine("Sorted users list with sorted todos: ");
 
                             foreach (User u in userList)
                             {
-                                Console.WriteLine("UserName:  " + u.Name + "\n");
+                                Console.WriteLine($"UserName:  {u.Name} ");
                                 if (u.Todos.Count() != 0)
                                 {
-                                    Console.WriteLine("Done todos: " + "\n");
+                                    Console.WriteLine("Done todos: ");
                                     foreach (Todo todo in u.Todos)
                                     {
-                                        Console.WriteLine("* " + todo.Name + "\n");
+                                        Console.WriteLine($"*  {todo.Name} ");
                                     }
                                 }
-                                Console.WriteLine("--------------" + "\n");
+                                Console.WriteLine("--------------");
                             }
 
                         }
                         break;
                     case 5:
-                        Console.WriteLine("You choose option " + "\n" +
-                           "5) Get the following Post structure (pass the post's Id to the parameters)" + "\n" +
-                           "Please enter postId");
+                        Console.WriteLine(
+@"You choose option 
+5) Get the following Post structure (pass the post's Id to the parameters)
+Please enter postId");
 
                         int postId;
                         try
@@ -185,9 +197,10 @@ namespace DataStructuresAndLINQ
                         }
                         catch
                         {
-                            Console.WriteLine("------------------------" + "\n" +
-                                "You have char in input instead of int. Please enter valid input" +
-                                "\n" + "---------------------------");
+                            Console.WriteLine(
+@"------------------------
+You have char in input instead of int. Please enter valid input
+---------------------------");
                             break;
                         }
 
@@ -195,18 +208,22 @@ namespace DataStructuresAndLINQ
                         var post = GetPostResponse(usersList, postId);
                         if (post != null)
                         {
-                            Console.WriteLine("Post Response: " + "\n" +
-                                "MostLikedComment :  " + "\n" + post.TheMostLikedComment + "\n" +
-                                "The biggest comment :   " + "\n" + post.TheBiggestComment + "\n" +
-                                "The number of comments under the post where or 0 words or" +
-                                " the length of the text is <80 :   " + post.QuantityOfNeededComment);
-                            Console.WriteLine("---------------------------" + "\n");
+                            Console.WriteLine(
+$@"Post Response:
+MostLikedComment :  
+- {post.TheMostLikedComment} 
+The biggest comment :   
+-{ post.TheBiggestComment} 
+The number of comments under the post where or 0 words or
+ the length of the text is <80 :   { post.QuantityOfNeededComment}
+---------------------------");
                         }
                         break;
                     case 6:
-                        Console.WriteLine("You choose option " + "\n" +
-                           "6) Get the following  User structure (pass the user's Id to the parameters)" + "\n" +
-                           "Please enter userId");
+                        Console.WriteLine(
+@"You choose option 
+6) Get the following  User structure (pass the user's Id to the parameters)
+Please enter userId");
                         int userId;
                         try
                         {
@@ -214,33 +231,43 @@ namespace DataStructuresAndLINQ
                         }
                         catch
                         {
-                            Console.WriteLine("------------------------" + "\n" +
-                                "You have char in input instead of int. Please enter valid input" +
-                                "\n" + "---------------------------");
+                            Console.WriteLine(
+@"------------------------
+You have char in input instead of int. Please enter valid input
+---------------------------");
                             break;
                         }
 
                         var user = GetUserResponse(usersList, userId);
                         if (user != null)
                         {
-                            Console.WriteLine("User Response: " + "\n" +
-                                "Quantity of comments above last post :  " + "\n" + user.QuantityComentsAtLastPost + "\n" +
-                                "Quantity of not done todos :   " + "\n" + user.QuantityOfNotDoneTodos);
+                            Console.WriteLine(
+$@"User Response:
+Quantity of comments above last post :  
+{user.QuantityComentsAtLastPost} 
+Quantity of not done todos :   
+{user.QuantityOfNotDoneTodos}");
                             if (user.MostPopularPostWithLikes != null)
                             {
-                                Console.WriteLine("Most popular Post (likes) :   " + "\n" + "-" + user.MostPopularPostWithLikes.Body);
+                                Console.WriteLine(
+$@"Most popular Post (likes) :  
+- {user.MostPopularPostWithLikes.Body}");
                             }
                             if (user.MostPopularPostWithComments != null)
                             {
 
-                                Console.WriteLine("Most popular Post (comments) :   " + "\n" + "-" + user.MostPopularPostWithComments.Body);
+                                Console.WriteLine(
+$@"Most popular Post (comments) :   
+- {user.MostPopularPostWithComments.Body}");
                             }
                             if (user.TheLatestPost != null)
                             {
-                                Console.WriteLine("The latest Post :   " + "\n" + "-" + user.TheLatestPost.Body);
+                                Console.WriteLine(
+$@"The latest Post :  
+- {user.TheLatestPost.Body}");
                             }
 
-                            Console.WriteLine("---------------------------" + "\n");
+                            Console.WriteLine("---------------------------");
                         }
                         break;
                     case 7:
@@ -260,8 +287,9 @@ namespace DataStructuresAndLINQ
             var user = users.Where(u => u.Id == userId).FirstOrDefault();
             if (user == null)
             {
-                Console.WriteLine("There is no such user" + "\n" +
-                    "---------------------------" + "\n");
+                Console.WriteLine(
+@"There is no such user
+---------------------------");
                 return -1;//it is possible to throw exception here 
             }
             var count = user.Posts.Count();
@@ -274,18 +302,20 @@ namespace DataStructuresAndLINQ
             if (user != null)
             {
                 var commments = users.SelectMany(u => u.Posts
-                    .SelectMany(p => p.Comments).Where(c => c.Body.Length < 100 && c.UserId == 81)).ToList();
+                    .SelectMany(p => p.Comments).Where(c => c.Body.Length < 50 && c.UserId == userId)).ToList();
                 if (commments == null)
                 {
-                    Console.WriteLine("There is no comments with this" +
-                        " requirements for selected user " + "\n" +
-                        "---------------------------" + "\n");
+                    Console.WriteLine(
+@"There is no comments with this
+requirements for selected user 
+---------------------------");
                     return null;
                 }
                 return commments;
             }
-            Console.WriteLine("There is no such user" + "\n" +
-                    "---------------------------" + "\n");
+            Console.WriteLine(
+@"There is no such user
+---------------------------");
             return null;
         }
 
@@ -300,14 +330,16 @@ namespace DataStructuresAndLINQ
                         .ToDictionary(t => t.Id, t => t.Name);
                 if (doneTodos.Count() == 0)
                 {
-                    Console.WriteLine("There is no done todos for selected user" + "\n" +
-                    "---------------------------" + "\n");
+                    Console.WriteLine(
+@"There is no done todos for selected user
+---------------------------");
                     return null;
                 }
                 return doneTodos;
             }
-            Console.WriteLine("There is no such user" + "\n" +
-                    "---------------------------" + "\n");
+            Console.WriteLine(
+@"There is no such user
+---------------------------");
             return null;
         }
 
@@ -315,8 +347,9 @@ namespace DataStructuresAndLINQ
         {
             if (users == null)
             {
-                Console.WriteLine("There is no users in list" + "\n" +
-                    "---------------------------" + "\n");
+                Console.WriteLine(
+@"There is no users in list
+---------------------------");
                 return null;
             }
 
@@ -340,8 +373,9 @@ namespace DataStructuresAndLINQ
                 .Where(p => p.Id == postId).FirstOrDefault();
             if (post == null)
             {
-                Console.WriteLine("There is no such post" + "\n" +
-                    "---------------------------" + "\n");
+                Console.WriteLine(
+@"There is no such post
+---------------------------");
                 return null;
             }
             var resp = new PostResponse
@@ -363,8 +397,9 @@ namespace DataStructuresAndLINQ
             var user = users.Where(u => u.Id == userId).FirstOrDefault();
             if (user == null)
             {
-                Console.WriteLine("There is no such user" + "\n" +
-                    "---------------------------" + "\n");
+                Console.WriteLine(
+@"There is no such user
+---------------------------");
                 return null;
             }
 

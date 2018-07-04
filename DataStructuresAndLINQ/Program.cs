@@ -47,8 +47,19 @@ namespace DataStructuresAndLINQ
                     "7) Finish to work with program." + "\n" +
                     "Please enter ONLY number of choosen option!!!");
 
+                int choose;
+                try
+                {
+                      choose = Convert.ToInt32(Console.ReadLine());
+                }
+                catch
+                {
+                    Console.WriteLine("------------------------"+"\n"+
+                        "You have char in input instead of int. Please enter valid input"+
+                        "\n"+"---------------------------");
+                    continue;
+                }
 
-                int choose = Convert.ToInt32(Console.ReadLine());
                 switch (choose)
                 {
                     case 1:
@@ -56,7 +67,21 @@ namespace DataStructuresAndLINQ
                             "1) Get the number of comments under the posts of a specific" +
                             " user (by iDi) (list from post-number)" + "\n" +
                             "Please enter userId");
-                        int userId1 = Convert.ToInt32(Console.ReadLine());
+
+                        int userId1;
+                        try
+                        {
+                            userId1 = Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch
+                        {
+                            Console.WriteLine("------------------------" + "\n" +
+                                "You have char in input instead of int. Please enter valid input" +
+                                "\n" + "---------------------------");
+                            break;
+                        }
+
+
                         int count = GetPostsCount(usersList, userId1);
                         if (count != -1)
                         {
@@ -69,7 +94,21 @@ namespace DataStructuresAndLINQ
                             "2) Get a list of comments under the posts of a specific user (via iDi)," +
                     " where the body comment is <50 characters (list from the comments)" + "\n" +
                             "Please enter userId");
-                        int userId2 = Convert.ToInt32(Console.ReadLine());
+
+                        int userId2;
+                        try
+                        {
+                            userId2 = Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch
+                        {
+                            Console.WriteLine("------------------------" + "\n" +
+                                "You have char in input instead of int. Please enter valid input" +
+                                "\n" + "---------------------------");
+                            break;
+                        }
+
+
                         var comments = GetPostComentsLessThenFiFtyLength(usersList, userId2);
                         if (comments != null)
                         {
@@ -85,7 +124,19 @@ namespace DataStructuresAndLINQ
                         Console.WriteLine("You choose option " + "\n" +
                             "3) Get the list (id, name) from the todos list that is executed for a particular user (by iDi)" + "\n" +
                             "Please enter userId");
-                        int userId3 = Convert.ToInt32(Console.ReadLine());
+                        int userId3;
+                        try
+                        {
+                            userId3 = Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch
+                        {
+                            Console.WriteLine("------------------------" + "\n" +
+                                "You have char in input instead of int. Please enter valid input" +
+                                "\n" + "---------------------------");
+                            break;
+                        }
+
                         var doneTodos = GetDoneToDos(usersList, userId3);
                         if (doneTodos!=null)
                         {
@@ -126,7 +177,21 @@ namespace DataStructuresAndLINQ
                         Console.WriteLine("You choose option " + "\n" +
                            "5) Get the following Post structure (pass the post's Id to the parameters)" + "\n" +
                            "Please enter postId");
-                        int postId = Convert.ToInt32(Console.ReadLine());
+
+                        int postId;
+                        try
+                        {
+                            postId = Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch
+                        {
+                            Console.WriteLine("------------------------" + "\n" +
+                                "You have char in input instead of int. Please enter valid input" +
+                                "\n" + "---------------------------");
+                            break;
+                        }
+
+
                         var post = GetPostResponse(usersList, postId);
                         if (post != null)
                         {
@@ -142,7 +207,19 @@ namespace DataStructuresAndLINQ
                         Console.WriteLine("You choose option " + "\n" +
                            "6) Get the following  User structure (pass the user's Id to the parameters)" + "\n" +
                            "Please enter userId");
-                        int userId = Convert.ToInt32(Console.ReadLine());
+                        int userId;
+                        try
+                        {
+                            userId = Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch
+                        {
+                            Console.WriteLine("------------------------" + "\n" +
+                                "You have char in input instead of int. Please enter valid input" +
+                                "\n" + "---------------------------");
+                            break;
+                        }
+
                         var user = GetUserResponse(usersList, userId);
                         if (user != null)
                         {
